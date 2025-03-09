@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 
+
 def display_schedule_table(best_schedule, data):
     """Displays the schedule in a table format using Streamlit."""
     days = data["Days"]

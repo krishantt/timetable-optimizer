@@ -1,6 +1,7 @@
 import numpy as np
 import random
 
+
 def cost_function(schedule, data):
     """Computes the cost of the current schedule based on constraints."""
     conflicts = 0
@@ -28,7 +29,7 @@ def cost_function(schedule, data):
 
 def simulated_annealing(data, max_iterations, initial_temperature, cooling_rate):
     """Performs simulated annealing to optimize the timetable."""
-    from .schedule_generator import initialize_schedule, get_neighbor # Relative import
+    from .schedule_generator import initialize_schedule, get_neighbor  # Relative import
 
     current_schedule = initialize_schedule(data)
     best_schedule = current_schedule

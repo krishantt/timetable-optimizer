@@ -1,5 +1,6 @@
 import random
 
+
 def initialize_schedule(data):
     """Creates a random initial schedule."""
     schedule = {}
