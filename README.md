@@ -1,4 +1,5 @@
-# Course Timetable Optimizer - Simulated Annealing Example
+# Course Timetable Optimizer 
+### A Simulated Annealing Example
 
 ![HomePage](screenshots/homepage.png)
 
