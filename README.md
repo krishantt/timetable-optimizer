@@ -1,5 +1,7 @@
 # Course Timetable Optimizer - Simulated Annealing Example
 
+![HomePage](screenshots/homepage.png)
+
 ## Description
 
 This project is a Streamlit web application that demonstrates the use of the **Simulated Annealing** algorithm to optimize course timetables. It takes a course timetable dataset in `.ctt` format as input and attempts to find a schedule that minimizes conflicts, such as scheduling courses in the same room at the same time or violating unavailability constraints.
@@ -13,6 +15,10 @@ The application provides a user-friendly interface built with Streamlit, allowin
 - **Track the cost optimization progress** through a plot.
 
 This project serves as a practical example of applying the Simulated Annealing algorithm to a real-world scheduling problem.
+
+### Sample Cost Optimization Progress Plot
+
+![Cost Optimization Progress](screenshots/cost_reduction.png)
 
 ## How to Run
 
@@ -90,6 +96,9 @@ c0001 4 1
 
 END.
 ```
+
+
+
 
 ## Algorithm Parameters
 
