@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import streamlit as st
+import time
 
 from utils.algorithm import simulated_annealing  # Relative import
 from utils.data_loader import load_timetable_from_string  # Relative import
@@ -35,15 +36,23 @@ def main():
 
             if st.button("Optimize Schedule"):
                 with st.spinner("Optimizing schedule..."):
-                    best_schedule, costs = simulated_annealing(
+                    start_time = time.time()
+                    best_schedule, costs,initial_cost,iterations_to_converge = simulated_annealing(
                         data, max_iterations, initial_temperature, cooling_rate
                     )
+                    end_time = time.time()
 
                 st.header("Optimized Schedule")
                 min_cost = (
                     min(costs) if costs else 0
                 )  # Handle cases where costs might be empty
                 st.write(f"Minimum Conflicts Found: {min_cost}")
+                st.write(f"Initial Conflicts: {initial_cost}")
+                st.write(f"Iterations to Converge: {iterations_to_converge}")
+                st.write(f"Time Taken: {end_time - start_time:.2f} seconds")
+                if initial_cost>0:
+                    reduction_percentage = ((initial_cost-min_cost)/initial_cost)*100
+                    st.write(f"Reduction in Conflicts: {reduction_percentage:.2f}%")
 
                 st.subheader("Schedule Table")
                 display_schedule_table(best_schedule, data)

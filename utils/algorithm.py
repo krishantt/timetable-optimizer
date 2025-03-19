@@ -37,6 +37,9 @@ def simulated_annealing(data, max_iterations, initial_temperature, cooling_rate)
     best_cost = current_cost
     temperature = initial_temperature
     costs = []
+    initial_cost = current_cost
+    iterations_to_converge = 0
+    
 
     for i in range(max_iterations):
         new_schedule = get_neighbor(current_schedule, data)
@@ -51,10 +54,11 @@ def simulated_annealing(data, max_iterations, initial_temperature, cooling_rate)
             if new_cost < best_cost:
                 best_schedule = new_schedule
                 best_cost = new_cost
+                iterations_to_converge = i+1
 
         costs.append(best_cost)
         temperature *= cooling_rate  # Cooling schedule
         if temperature < 1e-3:
             break
 
-    return best_schedule, costs
+    return best_schedule, costs, initial_cost, iterations_to_converge
